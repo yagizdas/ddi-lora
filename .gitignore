@@ -1,0 +1,47 @@
+# Secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.idea/
+.vscode/
+
+# Python / build / notebook caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+build/
+dist/
+.coverage
+htmlcov/
+
+# Original research files, data, exports, and trained models stay local
+local_archive/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+outputs/
+responses/
+*.jsonl
+*.csv
+*.parquet
+*.html
+*.zip
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.gguf
+checkpoints/
+qwen_lora/
+wandb/
+# Only deliberately curated public examples are tracked
+!examples/*.jsonl

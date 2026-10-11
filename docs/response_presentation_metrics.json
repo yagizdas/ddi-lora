@@ -1,0 +1,289 @@
+{
+  "scope": "Presentation measurements only; original aggregate clinical scores are not recalculated.",
+  "word_definition": "Unicode word-like tokens, including headings and numbers; internal hyphens/apostrophes remain in one token. Excludes user prompts and Markdown separators.",
+  "word_pattern": "\\b[\\w]+(?:[’'-][\\w]+)*\\b",
+  "transcript_sha256": {
+    "responses/basemodel_responses.md": "544482ce0b9fd9eb0151c3aed09b6ce4daaf975b266bd8dcf234494cc97cf4b2",
+    "responses/finetuned_model_responses.md": "38cd06770c05fd4d1151bd1d58ff62e5a3f7310b8fd75d7c3e4abbfbc154d784"
+  },
+  "paired_cases": 15,
+  "totals": {
+    "baseline": 4286,
+    "lora": 2823
+  },
+  "mean_words": {
+    "baseline": 285.73333333333335,
+    "lora": 188.2
+  },
+  "median_words": {
+    "baseline": 305,
+    "lora": 173
+  },
+  "lora_word_reduction_percent": 34.134391040597286,
+  "lora_shorter_cases": 14,
+  "all_four_sections_present": {
+    "baseline": 15,
+    "lora": 15
+  },
+  "all_four_sections_once": {
+    "baseline": 15,
+    "lora": 14
+  },
+  "cases": [
+    {
+      "case": 1,
+      "baseline_words": 305,
+      "lora_words": 222,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 2,
+      "baseline_words": 315,
+      "lora_words": 79,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 3,
+      "baseline_words": 259,
+      "lora_words": 84,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 4,
+      "baseline_words": 311,
+      "lora_words": 191,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 5,
+      "baseline_words": 264,
+      "lora_words": 166,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 6,
+      "baseline_words": 253,
+      "lora_words": 175,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 7,
+      "baseline_words": 252,
+      "lora_words": 173,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 8,
+      "baseline_words": 319,
+      "lora_words": 76,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 9,
+      "baseline_words": 305,
+      "lora_words": 288,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 10,
+      "baseline_words": 243,
+      "lora_words": 143,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 11,
+      "baseline_words": 306,
+      "lora_words": 77,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 12,
+      "baseline_words": 289,
+      "lora_words": 158,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 13,
+      "baseline_words": 308,
+      "lora_words": 269,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 14,
+      "baseline_words": 244,
+      "lora_words": 187,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "case": 15,
+      "baseline_words": 313,
+      "lora_words": 535,
+      "baseline_section_occurrences": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lora_section_occurrences": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  ]
+}

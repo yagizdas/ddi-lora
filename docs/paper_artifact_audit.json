@@ -1,0 +1,299 @@
+{
+  "scope": "15 paired cases in responses/, matched by normalized user prompt for pair overlap and qualitative comparison.",
+  "training_artifact": "local_archive/term_project_files/synthetic_messages.jsonl",
+  "test_artifact": "local_archive/term_project_files/test_cases.jsonl",
+  "baseline_review_artifact": "local_archive/model_output_nonfinetuned_evaluated.jsonl",
+  "lora_review_artifact": "local_archive/model_results_evaluated.jsonl",
+  "training_rows": 829,
+  "unique_test_pairs": 17,
+  "overlapping_test_pairs": 17,
+  "test_cases_with_pair_overlap": 15,
+  "identical_user_prompts_in_training": 0,
+  "cases": [
+    {
+      "case": 1,
+      "batch_index": 0,
+      "source_index": 509,
+      "pairs": [
+        [
+          "fluphenazine",
+          "perampanel"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Acknowledges sedation but denies a direct pharmacodynamic interaction and infers absence of adverse effects from the prompt.",
+      "lora_observation": "Preserves additive CNS/respiratory risk and relates it to age.",
+      "baseline_transcript_case": 1,
+      "lora_transcript_case": 1
+    },
+    {
+      "case": 2,
+      "batch_index": 1,
+      "source_index": 115,
+      "pairs": [
+        [
+          "brexpiprazole",
+          "hydroxyzine"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "fail",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Identifies the source additive effects and relates them to age, BPH, and dry eye.",
+      "lora_observation": "Denies the annotated actionable interaction.",
+      "baseline_transcript_case": 2,
+      "lora_transcript_case": 2
+    },
+    {
+      "case": 3,
+      "batch_index": 2,
+      "source_index": 327,
+      "pairs": [
+        [
+          "felodipine",
+          "iopanoic acid"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "fail",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Invents additive vasodilation and metabolism/excretion explanations although the source mechanism is unknown.",
+      "lora_observation": "Denies the annotated cardiovascular interaction.",
+      "baseline_transcript_case": 3,
+      "lora_transcript_case": 3
+    },
+    {
+      "case": 4,
+      "batch_index": 3,
+      "source_index": 469,
+      "pairs": [
+        [
+          "amoxapine",
+          "phenacemide"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Preserves the source CNS/respiratory risk and respiratory patient context.",
+      "lora_observation": "Preserves the source CNS/respiratory risk and respiratory patient context.",
+      "baseline_transcript_case": 4,
+      "lora_transcript_case": 4
+    },
+    {
+      "case": 5,
+      "batch_index": 4,
+      "source_index": 320,
+      "pairs": [
+        [
+          "cyclizine",
+          "nortriptyline"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Preserves additive anticholinergic risk and urinary/cognitive context.",
+      "lora_observation": "Preserves additive anticholinergic risk and urinary/cognitive context.",
+      "baseline_transcript_case": 5,
+      "lora_transcript_case": 5
+    },
+    {
+      "case": 6,
+      "batch_index": 5,
+      "source_index": 419,
+      "pairs": [
+        [
+          "dantrolene",
+          "hydroxyzine"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Identifies additive sedation risk and age-related susceptibility.",
+      "lora_observation": "Identifies additive sedation risk and age-related susceptibility.",
+      "baseline_transcript_case": 6,
+      "lora_transcript_case": 6
+    },
+    {
+      "case": 7,
+      "batch_index": 6,
+      "source_index": 477,
+      "pairs": [
+        [
+          "butorphanol",
+          "fluoxetine"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Identifies the annotated serotonergic risk and contextualizes monitoring.",
+      "lora_observation": "Identifies the annotated serotonergic risk and contextualizes monitoring.",
+      "baseline_transcript_case": 7,
+      "lora_transcript_case": 7
+    },
+    {
+      "case": 8,
+      "batch_index": 7,
+      "source_index": 584,
+      "pairs": [
+        [
+          "perindopril",
+          "trastuzumab emtansine"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Identifies no significant pairwise interaction and distinguishes general CKD monitoring.",
+      "lora_observation": "Identifies no source-supported pairwise interaction.",
+      "baseline_transcript_case": 8,
+      "lora_transcript_case": 8
+    },
+    {
+      "case": 9,
+      "batch_index": 8,
+      "source_index": 130,
+      "pairs": [
+        [
+          "mesoridazine",
+          "semaglutide"
+        ]
+      ],
+      "baseline_automated": "fail",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Reverses the source glycemic effect and gives an incorrect drug class.",
+      "lora_observation": "Identifies the source risk of diminished antidiabetic effect.",
+      "baseline_transcript_case": 9,
+      "lora_transcript_case": 9
+    },
+    {
+      "case": 10,
+      "batch_index": 9,
+      "source_index": 92,
+      "pairs": [
+        [
+          "insulin human (inhalation, rapid acting)",
+          "methyltestosterone"
+        ]
+      ],
+      "baseline_automated": "fail",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Denies the annotated interaction and reverses the direction of glycemic effect.",
+      "lora_observation": "Preserves potentiation of insulin effect and hypoglycemia risk.",
+      "baseline_transcript_case": 10,
+      "lora_transcript_case": 10
+    },
+    {
+      "case": 11,
+      "batch_index": 10,
+      "source_index": 721,
+      "pairs": [
+        [
+          "alfentanil",
+          "trimetrexate"
+        ]
+      ],
+      "baseline_automated": "pass",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Adds unsupported pair-specific CNS/respiratory risk to a source-negative control.",
+      "lora_observation": "Preserves the source-negative status.",
+      "baseline_transcript_case": 11,
+      "lora_transcript_case": 11
+    },
+    {
+      "case": 12,
+      "batch_index": 13,
+      "source_index": 335,
+      "pairs": [
+        [
+          "esomeprazole",
+          "neratinib"
+        ]
+      ],
+      "baseline_automated": "needs_review",
+      "lora_automated": "needs_review",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Replaces the source pH-dependent absorption mechanism with CYP3A4 inhibition.",
+      "lora_observation": "Replaces the source pH-dependent absorption mechanism with CYP3A4 induction.",
+      "baseline_transcript_case": 12,
+      "lora_transcript_case": 12
+    },
+    {
+      "case": 13,
+      "batch_index": 23,
+      "source_index": 62,
+      "pairs": [
+        [
+          "elagolix",
+          "oxcarbazepine"
+        ]
+      ],
+      "baseline_automated": "needs_review",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Reverses the source metabolic direction and identifies the wrong affected drug.",
+      "lora_observation": "Reverses the source metabolic direction and identifies the wrong affected drug.",
+      "baseline_transcript_case": 13,
+      "lora_transcript_case": 13
+    },
+    {
+      "case": 14,
+      "batch_index": 25,
+      "source_index": 693,
+      "pairs": [
+        [
+          "bosentan",
+          "dihydrocodeine"
+        ]
+      ],
+      "baseline_automated": "fail",
+      "lora_automated": "pass",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Assigns an actionable interaction to a source-negative control.",
+      "lora_observation": "Assigns an actionable interaction to a source-negative control.",
+      "baseline_transcript_case": 14,
+      "lora_transcript_case": 14
+    },
+    {
+      "case": 15,
+      "batch_index": 28,
+      "source_index": "multi_1000073",
+      "pairs": [
+        [
+          "amisulpride",
+          "losartan"
+        ],
+        [
+          "bendroflumethiazide",
+          "vortioxetine"
+        ],
+        [
+          "canagliflozin",
+          "vorinostat"
+        ]
+      ],
+      "baseline_automated": "needs_review",
+      "lora_automated": "needs_review",
+      "evaluator_model": "gemini-3.1-flash-lite",
+      "baseline_observation": "Omits annotated pairs and substitutes other mechanisms.",
+      "lora_observation": "Omits source mechanisms and pairs, repeats entries, and invents serotonergic effects.",
+      "baseline_transcript_case": 15,
+      "lora_transcript_case": 15
+    }
+  ],
+  "baseline_transcript": "responses/basemodel_responses.md",
+  "lora_transcript": "responses/finetuned_model_responses.md",
+  "transcript_sha256": {
+    "responses/basemodel_responses.md": "544482ce0b9fd9eb0151c3aed09b6ce4daaf975b266bd8dcf234494cc97cf4b2",
+    "responses/finetuned_model_responses.md": "38cd06770c05fd4d1151bd1d58ff62e5a3f7310b8fd75d7c3e4abbfbc154d784"
+  },
+  "paired_case_count": 15
+}

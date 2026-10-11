@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patient-aware-ddi"
+version = "0.1.0"
+description = "DDInter-grounded synthetic data and Qwen3 LoRA tools for patient-aware interaction research"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Kemal Yağız Daşkıran"}]
+dependencies = [
+  "requests>=2.32,<3",
+  "pandas>=2.2,<4",
+  "beautifulsoup4>=4.12,<5",
+  "google-genai>=1.0,<3",
+  "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+paper = ["reportlab>=4,<6"]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "build>=1.2,<2", "nbformat>=5.10,<6"]
+
+[project.scripts]
+ddi-crawl = "patient_aware_ddi.crawl:main"
+ddi-merge = "patient_aware_ddi.merge:main"
+ddi-negatives = "patient_aware_ddi.negatives:main"
+ddi-generate = "patient_aware_ddi.generate:main"
+ddi-sample = "patient_aware_ddi.sample:main"
+ddi-rewrite = "patient_aware_ddi.rewrite:main"
+ddi-evaluate = "patient_aware_ddi.evaluate:main"
+ddi-review = "patient_aware_ddi.review_synthetic:main"
+ddi-review-sources = "patient_aware_ddi.review_sources:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+extend-exclude = ["local_archive", "notebooks"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
