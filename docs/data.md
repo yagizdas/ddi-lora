@@ -6,7 +6,7 @@ The source of the research corpus is DDInter. The saved source snapshot contains
 
 ## Local evaluation transcripts
 
-The paired baseline and LoRA transcripts remain in the ignored local archive. They contain the same 15 synthetic user requests and support the paper's response analysis and post-hoc error audit. The public repository includes aggregate analysis and audit summaries; raw transcripts and generated output files stay local.
+The paired baseline and LoRA transcripts remain in the ignored local archive. They contain the same 15 synthetic user requests and support the paper's evaluation and post-hoc error audit. The public repository includes aggregate analysis and audit summaries; raw transcripts and generated output files stay local.
 
 ## Source records
 

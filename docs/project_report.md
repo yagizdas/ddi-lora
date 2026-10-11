@@ -5,7 +5,7 @@ Department of Electronics and Communications Engineering
 Istanbul Technical University, Istanbul, Turkey
 Email: daskiran21@itu.edu.tr
 
-**Abstract—** Drug interaction databases describe medication pairs, but patient-level assessment requires us to connect those records to age, comorbidities, laboratory values, and the full medication list. We construct synthetic patient–interaction narratives from DDInter knowledge and adapt Qwen3-14B with low-rank adaptation (LoRA) to produce a four-part assessment. Our adapters update 128,450,560 parameters, approximately 0.86% of the training model. In our original evaluation of 15 randomly selected scenarios, the pass rate increased from 60.0% for the baseline to 86.7% after adaptation, an absolute improvement of 26.7 percentage points. We complement this comparison with paired response analysis and a post-hoc error audit. Our next step is a larger, pair-disjoint evaluation with clinical expert review and retrieval before generation.
+**Abstract—** Drug interaction databases describe medication pairs, but patient-level assessment requires us to connect those records to age, comorbidities, laboratory values, and the full medication list. We construct synthetic patient–interaction narratives from DDInter knowledge and adapt Qwen3-14B with low-rank adaptation (LoRA) to produce a four-part assessment. Our adapters update 128,450,560 parameters, approximately 0.86% of the training model. In our original evaluation of 15 randomly selected scenarios, the pass rate increased from 60.0% for the baseline to 86.7% after adaptation, an absolute improvement of 26.7 percentage points. We complement this comparison with a post-hoc error audit. Our next step is a larger, pair-disjoint evaluation with clinical expert review and retrieval before generation.
 
 **Index Terms—** Drug–drug interactions, large language models, synthetic data, low-rank adaptation, patient context, local inference.
 
@@ -17,7 +17,7 @@ DDInter supplies curated interaction descriptions, severity categories, and mana
 
 Our research question concerns adaptation to known interactions. We train the model to identify priority pairs, explain their mechanisms, relate those risks to the patient, and present monitoring recommendations. We use these four sections as a common output structure so that readers can compare the interaction claim, supporting mechanism, contextual interpretation, and proposed management separately.
 
-We make three contributions. First, we develop a synthetic instruction-data workflow that combines DDInter records with varied patient profiles and source-constrained target narratives. Second, we adapt Qwen3-14B through LoRA, updating approximately 0.86% of the model parameters. Third, we compare the adapted model with its unadapted backbone on 15 scenarios, quantify response presentation, and audit source consistency and train/test drug-pair overlap.
+We make three contributions. First, we develop a synthetic instruction-data workflow that combines DDInter records with varied patient profiles and source-constrained target narratives. Second, we adapt Qwen3-14B through LoRA, updating approximately 0.86% of the model parameters. Third, we compare the adapted model with its unadapted backbone on 15 scenarios and audit source consistency and train/test drug-pair overlap.
 
 We choose an open-weight backbone to support an eventual local inference workflow. In that workflow, an institution can retain control over patient inputs and model execution. Our present study focuses on dataset construction, parameter-efficient adaptation, and the quality of generated assessments.
 
@@ -90,13 +90,11 @@ We randomly select 15 patient scenarios from the test batch and compare the base
 
 For inference, we disable thinking, set temperature to 0.7, top-p to 0.8, and top-k to 20, and allow up to 2,048 new tokens. We match our saved baseline and LoRA transcripts by normalized user-request text. This produces 15 paired cases in transcript order and lets us compare both responses against the same annotated source pairs.
 
-### B. Evaluation Summary and Response Analysis
+### B. Evaluation Summary and Post-Hoc Audit
 
-Our original evaluation uses a case-level rubric: a passing answer identifies significant interaction pairs, gives a source-consistent mechanism, and relates the assessment to the patient's context. A missed pair, an incorrect mechanism, or a contradictory contextual assessment counts as a fail. We calculate the pass rate as the number of passing scenarios divided by 15. We use the aggregate outcomes from our original project summary for Table II and the recovered response files for the response comparison in Table III.
+Our original evaluation uses a case-level rubric: a passing answer identifies significant interaction pairs, gives a source-consistent mechanism, and relates the assessment to the patient's context. A missed pair, an incorrect mechanism, or a contradictory contextual assessment counts as a fail. We calculate the pass rate as the number of passing scenarios divided by 15. We use the aggregate outcomes from our original project summary for Table II.
 
-We measure the length and section structure of each saved assistant response. We count word-like tokens, including section headings and numbers, while excluding user requests and Markdown separators; hyphenated terms count as one token. We then compare paired word counts, average response length, and the presence of the four target sections. This analysis characterizes the presentation of the assessment separately from its clinical content.
-
-We also inspect the saved responses for repeated sections, omitted source information, and unsupported mechanisms. We use this post-hoc audit to identify improvements for the next version of the dataset and inference workflow. The audit includes checks of drug identity and class, with the illustrative methsuximide error discussed in Section V-C.
+We also inspect the saved responses for repeated sections, omitted source information, and unsupported mechanisms. We use this post-hoc audit to identify improvements for the next version of the dataset and inference workflow. The audit includes checks of drug identity and class, with the illustrative methsuximide error discussed in Section V-B.
 
 ### C. Train/Test Pair-Overlap Audit
 
@@ -119,39 +117,9 @@ TABLE II. ORIGINAL PROJECT EVALUATION SUMMARY
 
 Fig. 2. Passing and failing scenarios in the original 15-case baseline and LoRA evaluation.
 
-### B. Paired Response Length and Structure
+### B. Qualitative Behavior and Drug-Class Audit
 
-Table III compares word counts for the same 15 saved user requests. The adapted model produces shorter answers in 14 cases. Average response length decreases from 285.7 to 188.2 words, a reduction of 34.1%. Median response length decreases from 305 to 173 words. Both models include all four target sections in every case.
-
-TABLE III. WORD COUNTS FOR PAIRED MODEL RESPONSES
-
-| Case | Baseline words | LoRA words |
-| --- | --- | --- |
-| 1 | 305 | 222 |
-| 2 | 315 | 79 |
-| 3 | 259 | 84 |
-| 4 | 311 | 191 |
-| 5 | 264 | 166 |
-| 6 | 253 | 175 |
-| 7 | 252 | 173 |
-| 8 | 319 | 76 |
-| 9 | 305 | 288 |
-| 10 | 243 | 143 |
-| 11 | 306 | 77 |
-| 12 | 289 | 158 |
-| 13 | 308 | 269 |
-| 14 | 244 | 187 |
-| 15 | 313 | 535 |
-| Mean | 285.7 | 188.2 |
-| Median | 305 | 173 |
-
-The paired responses show a more compact presentation of the assessment after adaptation. They let us quantify an observable change in the saved answers alongside the original case-level comparison. The common four-part structure gives readers a consistent place to inspect the interaction claim, its mechanism, the patient-specific interpretation, and the recommendation.
-
-Case 15 is an exception: the adapted response contains 535 words compared with 313 for the baseline and repeats each target heading twice. We use this example to identify repetition as a specific target for future quality control. Response length and section coverage measure presentation; they do not determine whether the clinical claims are correct.
-
-### C. Qualitative Behavior and Drug-Class Audit
-
-We observe that adaptation generally reduces response length while retaining the four-part structure. In cases 9 and 10, the adapted model preserves the source's direction of glycemic effect, while the baseline gives a conflicting explanation. In case 11, adaptation also produces a more source-bounded answer for a negative control. These examples illustrate how the saved models express source information within the shared response format.
+In cases 9 and 10, the adapted model preserves the source's direction of glycemic effect, while the baseline gives a conflicting explanation. In case 11, adaptation also produces a more source-bounded answer for a negative control. These examples illustrate how the saved models express source information within the shared response format.
 
 A post-hoc audit identified a drug-class error in an illustrative multi-medication response: the model described methsuximide as a barbiturate. The official CELONTIN label classifies it as a succinimide anticonvulsant [6]. We use this finding to motivate explicit checks of drug identity and class, as well as interaction mechanisms.
 
@@ -169,7 +137,7 @@ Our next implementation will enumerate medication pairs deterministically and re
 
 ## VII. CONCLUSION
 
-We present a workflow for patient-aware drug interaction assessment that combines DDInter-grounded synthetic conversations with LoRA adaptation of Qwen3-14B. Our original project evaluation gives a 60.0% baseline pass rate and 86.7% with adaptation while updating approximately 0.86% of the model parameters. The recovered response files also show a 34.1% reduction in average answer length. Our contribution includes a paired response comparison, a post-hoc error audit, and a measured train/test pair-overlap analysis. We will next integrate retrieval before generation and evaluate the resulting assessments on a larger, pair-disjoint benchmark with clinical expert review.
+We present a workflow for patient-aware drug interaction assessment that combines DDInter-grounded synthetic conversations with LoRA adaptation of Qwen3-14B. Our original project evaluation gives a 60.0% baseline pass rate and 86.7% with adaptation while updating approximately 0.86% of the model parameters. Our contribution includes a baseline-versus-LoRA evaluation, a post-hoc error audit, and a measured train/test pair-overlap analysis. We will next integrate retrieval before generation and evaluate the resulting assessments on a larger, pair-disjoint benchmark with clinical expert review.
 
 ## REFERENCES
 

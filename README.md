@@ -17,9 +17,9 @@ The saved training snapshot contains **829 synthetic conversations**: 529 source
 | Qwen3-14B baseline | 9 / 15 | 60.0% |
 | Qwen3-14B + LoRA | 13 / 15 | 86.7% |
 
-The reported difference is **+26.7 percentage points** under the project's case-level rubric. These are the initial evaluation results; this repository cleanup did not rerun training. The revised paper adds paired response measurements (34.1% shorter answers on average), a post-hoc error audit, and measures overlap in the saved artifacts: all 17 annotated test pairs also occur in training. The evaluation contains 15 scenarios, and a post-hoc audit identifies a factual error in an illustrative output. This is a research proof of concept, with no clinical validation. See [evaluation notes](docs/evaluation.md).
+The reported difference is **+26.7 percentage points** under the project's case-level rubric. These are the initial evaluation results; this repository cleanup did not rerun training. The revised paper adds a post-hoc error audit and measures overlap in the saved artifacts: all 17 annotated test pairs also occur in training. The evaluation contains 15 scenarios, and a post-hoc audit identifies a factual error in an illustrative output. This is a research proof of concept, with no clinical validation. See [evaluation notes](docs/evaluation.md).
 
-The [response analysis](docs/response_presentation_metrics.json) records the word counts, and the [artifact audit](docs/paper_artifact_audit.json) records the case mapping and pair overlap. Raw response transcripts and generated outputs stay local.
+The [artifact audit](docs/paper_artifact_audit.json) records the case mapping and pair overlap. Raw response transcripts and generated outputs stay local.
 
 ## Workflow
 

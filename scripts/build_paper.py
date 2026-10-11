@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render docs/project_report.md as a four-page, two-column IEEE-style paper.
+"""Render docs/project_report.md as a two-column IEEE-style paper.
 
 Install the optional paper dependency with: python -m pip install -e '.[paper]'
 """
