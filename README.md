@@ -1,10 +1,12 @@
-# Patient-Aware Drug Interaction Assessment
+# ddi-lora
 
-**DDInter-grounded synthetic instruction data and LoRA fine-tuning of Qwen3-14B for patient-contextualized drug interaction research.**
+### Patient-aware drug interaction assessment with Qwen3-14B
 
-This project explores whether adapting an open-weight language model can improve how it explains known drug interactions in the context of a patient profile. It includes interaction extraction, source deduplication, synthetic conversation generation, prompt rewriting, model evaluation, and browser-based human review tools.
+ddi-lora is a research prototype that adapts Qwen3-14B to explain drug interactions in the context of a patient profile. The pipeline extracts DDInter records, generates and reviews synthetic conversations, fine-tunes the model with LoRA, and compares baseline and adapted responses through automated evaluation and browser-based review tools.
 
-Developed by **Kemal Yağız Daşkıran**, Istanbul Technical University. Read the [project report](docs/project_report.pdf) for the research design and findings.
+**Author:** Kemal Yağız Daşkıran · Istanbul Technical University
+
+[Project paper](docs/project_report.pdf) · [Training and setup](docs/reproduction.md) · [Example data](examples) · [Development](#development-and-publication)
 
 ## Reported results
 
